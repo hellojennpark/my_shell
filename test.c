@@ -1,5 +1,6 @@
 #include <stdio.h>
 
 int main(void){
-	printf("BB");
+	printf("master");
+	printf("branch\n");
 }
