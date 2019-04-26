@@ -54,11 +54,7 @@ int main(void) {
 
 	char *args[MAX_LEN/2 + 1]; /* command line arguments */
 	int should_run = 1; /* flag to determine when to exit program */
-//	int background = 0;
 
-/*	char *input;
-	int status;
-*/
 	char buffer[MAX_LEN + 1];
 	memset(buffer, 0, sizeof(buffer));
 
@@ -68,18 +64,6 @@ int main(void) {
 		printf("my_shell>");
 		fflush(stdout);
 
-/*
-		input = (char*)malloc(MAX_LEN *sizeof(char));
-		fgets(input, MAX_LEN, stdin);
-
-		int i = 0;
-		args[i] = strtok(input, " ");
-		while (args[i] != NULL) {
-			i++;
-			args[i] = strtok(NULL, " ");
-		}
-
-*/
 
 		length = fetch_input(buffer);
 		if (length == -1) continue;
@@ -99,7 +83,6 @@ int main(void) {
 		if (strcmp(args[args_num-1], "&") == 0) {
 			args[args_num - 1] = NULL;
 			background = 1;
-			//printf("child process complte");
 		}
 
 		pid_t pid = fork();
@@ -112,10 +95,8 @@ int main(void) {
 		int status;
 
 		if (pid == 0) {
-			//printf("waiting for child, not a background process\n");
 			status = execvp(args[0], args);
 			return 0;
-			//printf("child process complte\n");
 		}
 		else{
 			if(pid >0) {
@@ -125,7 +106,6 @@ int main(void) {
 					printf("child process complte\n");
 				}
 				else if(background) {
-					//exit(0);
 					printf("background process\n");
 				}
 			}
