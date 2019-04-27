@@ -61,6 +61,12 @@ int main(void) {
 
 	int length, args_num;
 
+	//쉘 시작 하기 전 안내 문구
+	printf("\n\n\n");
+	printf("[CSE4009 SYSTEM PROGRAMMING] TERM PROJECT\n");
+	printf("나만의 쉘 만들기\n");
+	printf("소프트웨어학부 2017011985 박예진\n");
+	printf("\n\n\n");
 	while (should_run) {
 		printf("my_shell>");
 		//flush는 버퍼가 차지 않았어도 강제로 출력을 해준다.
@@ -116,14 +122,14 @@ int main(void) {
 				if (!background) {
 					//background flag가 활성화되어 있다면, 자식 프로세스의 종료를 기다린다.
 					//background = 0이므로 !background = 1이고 flag 활성화 
-					printf("waiting for child, not a background process\n");
+					printf("(waiting for child, not a background process)\n");
 					//waitpid는 첫번째 인자로 pid를 받고, 그 pid를 갖는 자식 프로세스의 종료를 기다린다. 
 					waitpid(pid, &status, 0);
-					printf("child process complte\n");
+					printf("(child process complte)\n");
 				}
 				else if(background) {
 					//부모 프로세스를 바로 종료시킨다.
-					printf("background process\n");
+					printf("(background process)\n");
 				}
 			}
 		}
