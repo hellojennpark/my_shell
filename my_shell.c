@@ -82,19 +82,27 @@ int main(void) {
 		if (args_num == 0)
 			goto no_input;
 
-		//쪼개진 문자열을 비교해서 쪼개진 문자열이 exit과 같다면 프로그램을 종료시킨다.
+		//기능
+		//(strcmp를 이용해서 쪼개진 문자열을 비교함)
+		//1. 쪼개진 문자열이 exit과 같다면 프로그램을 종료시킨다.
 		if (strcmp(args[0], "exit") == 0) {
 			should_run = 0;
 			continue;
 		}
 
-
+		//2.쪼개진 문자열이 &으로 마무리가 된다면 background 프로세스로 실행하기 위해 flag를 활성화한다.		
 		int background = 0;
-		//쪼개진 문자열을 비교해서 쪼개진 문자열이 &으로 마무리가 된다면 background 프로세스로 실행하기 위해 flag를 활성화한다.
 		if (strcmp(args[args_num-1], "&") == 0) {
 			args[args_num - 1] = NULL;
 			background = 1;
 		}
+
+		//3. 쪼개진 문자열의 첫번째가 cd라면 두번째 문자열에 있는 디렉터리로 이동한다.
+		if (strcmp(args[0], "cd") == 0){
+			chdir(args[1]);
+		} 
+
+
 
 		//pid(process id)는 포크를 하면 생기는 반환값이다.
 		pid_t pid = fork();
@@ -122,14 +130,14 @@ int main(void) {
 				if (!background) {
 					//background flag가 활성화되어 있다면, 자식 프로세스의 종료를 기다린다.
 					//background = 0이므로 !background = 1이고 flag 활성화 
-					printf("(waiting for child, not a background process)\n");
+					printf("\n(waiting for child, not a background process)\n");
 					//waitpid는 첫번째 인자로 pid를 받고, 그 pid를 갖는 자식 프로세스의 종료를 기다린다. 
 					waitpid(pid, &status, 0);
-					printf("(child process complte)\n");
+					printf("\n(child process complte)\n");
 				}
 				else if(background) {
 					//부모 프로세스를 바로 종료시킨다.
-					printf("(background process)\n");
+					printf("(background process)\n\n");
 				}
 			}
 		}
