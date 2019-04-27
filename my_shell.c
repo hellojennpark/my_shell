@@ -66,6 +66,9 @@ int main(void) {
 	printf("[CSE4009 SYSTEM PROGRAMMING] TERM PROJECT\n");
 	printf("나만의 쉘 만들기\n");
 	printf("소프트웨어학부 2017011985 박예진\n");
+	printf("구현한 기능을 확인하고 싶으면 myfunction을 입력해주세요.\n");
+	printf("자세한 사용법은 위키를 참고해주세요.\n");
+	printf("https://github.com/vivi9814/my_shell/wiki/My-Own-Linux-Shell-in-C\n");
 	printf("\n\n\n");
 	while (should_run) {
 		printf("my_shell>");
@@ -84,6 +87,16 @@ int main(void) {
 
 		//기능
 		//(strcmp를 이용해서 쪼개진 문자열을 비교함)
+		//0. 구현한 기능들에 대해 알 수 있는 명령어
+		if (strcmp(args[0], "myfunction") == 0){
+			printf("#######MY FUNCTION LIST#######\n");
+			printf("0. myfunction\n");
+			printf("1. exit\n");
+			printf("2. cd\n");
+			printf("3. background check(&)\n");
+			printf("##############################\n");
+		}
+
 		//1. 쪼개진 문자열이 exit과 같다면 프로그램을 종료시킨다.
 		if (strcmp(args[0], "exit") == 0) {
 			should_run = 0;
@@ -101,6 +114,8 @@ int main(void) {
 		if (strcmp(args[0], "cd") == 0){
 			chdir(args[1]);
 		} 
+
+
 
 
 
@@ -130,10 +145,10 @@ int main(void) {
 				if (!background) {
 					//background flag가 활성화되어 있다면, 자식 프로세스의 종료를 기다린다.
 					//background = 0이므로 !background = 1이고 flag 활성화 
-					printf("\n(waiting for child, not a background process)\n");
+					// printf("\n(waiting for child, not a background process)\n");
 					//waitpid는 첫번째 인자로 pid를 받고, 그 pid를 갖는 자식 프로세스의 종료를 기다린다. 
 					waitpid(pid, &status, 0);
-					printf("\n(child process complte)\n");
+					// printf("\n(child process complte)\n");
 				}
 				else if(background) {
 					//부모 프로세스를 바로 종료시킨다.
