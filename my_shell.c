@@ -91,14 +91,14 @@ int main(void) {
 		if (strcmp(args[0], "myfunction") == 0){
 			printf("#######MY FUNCTION LIST#######\n");
 			printf("0. myfunction\n");
-			printf("1. exit\n");
-			printf("2. cd\n");
+			printf("1. myexit\n");
+			printf("2. mycd\n");
 			printf("3. background check(&)\n");
 			printf("##############################\n");
 		}
 
 		//1. 쪼개진 문자열이 exit과 같다면 프로그램을 종료시킨다.
-		if (strcmp(args[0], "exit") == 0) {
+		if (strcmp(args[0], "myexit") == 0) {
 			should_run = 0;
 			continue;
 		}
@@ -111,7 +111,7 @@ int main(void) {
 		}
 
 		//3. 쪼개진 문자열의 첫번째가 cd라면 두번째 문자열에 있는 디렉터리로 이동한다.
-		if (strcmp(args[0], "cd") == 0){
+		if (strcmp(args[0], "mycd") == 0){
 			chdir(args[1]);
 		} 
 
