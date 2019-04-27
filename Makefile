@@ -1,5 +1,8 @@
-simple_shell : simple_shell.o
-	gcc -o simple_shell simple_shell.o
+my_shell : my_shell.o
+	gcc -o my_shell my_shell.o
+	
+my_shell.o : my_shell.c
+	gcc -c -o my_shell.o my_shell.c
 
-simple_shell.o : simple_shell.c
-	gcc -c -o simple_shell.o simple_shell.c
+clean :
+	rm -rf my_shell.o my_shell
