@@ -20,3 +20,5 @@
 - [편의를 위한 기능](https://github.com/vivi9814/my_shell/wiki/%EB%8B%A8%EC%88%9C-%ED%8E%B8%EC%9D%98%EB%A5%BC-%EC%9C%84%ED%95%9C-%EA%B8%B0%EB%8A%A5-%EC%B6%94%EA%B0%80)
 - [myls(*별도)](https://github.com/vivi9814/my_shell/wiki/myls)
 - [mycat(*별도)](https://github.com/vivi9814/my_shell/wiki/mycat(*%EB%B3%84%EB%8F%84))
+### ETC
+- [배운점](https://github.com/vivi9814/my_shell/wiki/%EB%B0%B0%EC%9A%B4%EC%A0%90)
