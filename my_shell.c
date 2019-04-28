@@ -5,6 +5,7 @@
 #include <unistd.h>
 #include <dirent.h>
 #include <sys/types.h>
+#include <errno.h>
 
 #define MAX_LEN 100 /* The maximum length command */
 #define	MAX_PATH 1024 /* The maximum path length command */
@@ -138,14 +139,47 @@ int main(void) {
 
 		// 4. 쪼개진 문자열이 mypwd와 같다면 현재 위치를 출력한다.
 
+		// if (strcmp(args[0], "mypwd") == 0){
+		// 	char path[MAX_PATH];
+		// 	if (getcwd(path, sizeof(path)) != NULL) {
+		// 		printf("My pwd : %s\n", path);
+		// 	}
+		// 	else{
+		// 		perror("getpwd() error\n");
+		// 	}
+		// }
+
+		// mypwd 동적 할당 ver
+
+		char* mypwd(void){
+			char *buf, *pwd;
+			size_t size = MAX_PATH;
+
+			buf = malloc(size);
+			if (!buf) return 0;
+			for (;;) {
+				errno = 0;
+				if (getcwd(buf,size)) return buf;
+				if (errno != ERANGE) break;
+				size = size*2;
+				pwd = realloc(buf, size);
+				if (!pwd) break;
+				buf = pwd;
+			}			
+			free(buf);
+			return 0;
+		}
+
 		if (strcmp(args[0], "mypwd") == 0){
-			char path[MAX_PATH];
-			if (getcwd(path, sizeof(path)) != NULL) {
-				printf("My pwd : %s\n", path);
+			char *path;
+
+			path = mypwd();
+			if (!path) {
+				perror("getcwd");
+				exit(1);
 			}
-			else{
-				perror("getpwd() error\n");
-			}
+			puts(path);
+			free(path);
 		}
 
 
@@ -177,10 +211,10 @@ int main(void) {
 				if (!background) {
 					//background flag가 활성화되어 있다면, 자식 프로세스의 종료를 기다린다.
 					//background = 0이므로 !background = 1이고 flag 활성화 
-					printf("\n(waiting for child, not a background process)\n");
+					// printf("\n(waiting for child, not a background process)\n");
 					//waitpid는 첫번째 인자로 pid를 받고, 그 pid를 갖는 자식 프로세스의 종료를 기다린다. 
 					waitpid(pid, &status, 0);
-					printf("\n(child process complte)\n");
+					// printf("\n(child process complte)\n");
 				}
 				else if(background) {
 					//부모 프로세스를 바로 종료시킨다.
