@@ -177,10 +177,10 @@ int main(void) {
 				if (!background) {
 					//background flag가 활성화되어 있다면, 자식 프로세스의 종료를 기다린다.
 					//background = 0이므로 !background = 1이고 flag 활성화 
-					// printf("\n(waiting for child, not a background process)\n");
+					printf("\n(waiting for child, not a background process)\n");
 					//waitpid는 첫번째 인자로 pid를 받고, 그 pid를 갖는 자식 프로세스의 종료를 기다린다. 
 					waitpid(pid, &status, 0);
-					// printf("\n(child process complte)\n");
+					printf("\n(child process complte)\n");
 				}
 				else if(background) {
 					//부모 프로세스를 바로 종료시킨다.
