@@ -94,6 +94,7 @@ int main(void) {
 			printf("1. myexit\n");
 			printf("2. mycd\n");
 			printf("3. background check(&)\n");
+			printf("4. my pwd")
 			printf("##############################\n");
 		}
 
@@ -115,7 +116,14 @@ int main(void) {
 			chdir(args[1]);
 		} 
 
+		if (strcmp(args[0], "mypwd") == 0){
 
+			int PATH_MAX = 1024;
+			char path[PATH_MAX];
+			if (getcwd(path, sizeof(path)) != NULL) {
+				printf("My pwd : %s\n", path);
+			}
+		}
 
 
 
