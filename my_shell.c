@@ -110,6 +110,8 @@ int main(void) {
 			printf("4. mypwd\n");
 			printf("5. myls(이 프로그램에서는 ls를 사용해주세요.\n");
 			printf("6. mycat(이 프로그램에서는 cat을 사용해주세요.\n");
+			printf("*pipe는 my_pipe 프로그램을 확인해주세요.\n");
+			printf("*redirection은 my_redirection 프로그램을 확인해주세요.\n");
 			printf("##############################\n");
 		}
 
