@@ -14,6 +14,7 @@
 - [IDEA](https://github.com/vivi9814/my_shell/wiki/idea)
 - [쉘의 기본 개념](https://github.com/vivi9814/my_shell/wiki/%EC%89%98%EC%9D%98-%EA%B8%B0%EB%B3%B8-%EA%B0%9C%EB%85%90)
 ### 구현한 쉘 기능(상세설명)
+<my_shell.c>
 - [myexit](https://github.com/vivi9814/my_shell/wiki/exit)
 - [mycd](https://github.com/vivi9814/my_shell/wiki/cd)
 - [background checking](https://github.com/vivi9814/my_shell/wiki/background-checking)
@@ -25,7 +26,7 @@
 - [편의를 위한 기능](https://github.com/vivi9814/my_shell/wiki/%EB%8B%A8%EC%88%9C-%ED%8E%B8%EC%9D%98%EB%A5%BC-%EC%9C%84%ED%95%9C-%EA%B8%B0%EB%8A%A5-%EC%B6%94%EA%B0%80)
 
 ***
-
+<my_ls.c/my_cat.c/my_pipe.c>
 - [myls(*별도)](https://github.com/vivi9814/my_shell/wiki/myls)
 - [mycat(*별도)](https://github.com/vivi9814/my_shell/wiki/mycat(*%EB%B3%84%EB%8F%84))
 - [my_pipe(**단순화)](https://github.com/vivi9814/my_shell/wiki/pipe)
