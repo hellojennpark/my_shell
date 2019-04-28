@@ -90,9 +90,9 @@ int main(void) {
 		if (args_num == 0)
 			goto no_input;
 
-				5. 쪼개진 문자열이 ls와 같다면 현재 위치의 파일 및 폴더를 출력한다.
-		ls의 옵션은 아직 구현되지 않았다.
-		ls기능은 정상 작동하나 ls를 사용하고 나면 그 다음 명령어까지만 실행이 되고 이후 랜덤한 시간동안 쉘에 명령어 기능이 되지않음.
+		// 		5. 쪼개진 문자열이 ls와 같다면 현재 위치의 파일 및 폴더를 출력한다.
+		// ls의 옵션은 아직 구현되지 않았다.
+		// ls기능은 정상 작동하나 ls를 사용하고 나면 그 다음 명령어까지만 실행이 되고 이후 랜덤한 시간동안 쉘에 명령어 기능이 되지않음.
 		int myls(char *path){
 				DIR *dp;
 				struct dirent *dirt;
@@ -121,9 +121,8 @@ int main(void) {
 				// else{
 					char *pwd = getenv("PWD");
 					myls(pwd);
-				// }
 			}
-			// exit(0);
+			exit(0);
 			// goto no_input;
 			// continue;
 		}
