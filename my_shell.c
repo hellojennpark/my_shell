@@ -3,9 +3,11 @@
 #include <string.h>
 #include <sys/wait.h>
 #include <unistd.h>
+#include <dirent.h>
+#include <sys/types.h>
 
 #define MAX_LEN 100 /* The maximum length command */
-#define	PATH_MAX 1024 /* The maximum path length command */
+#define	MAX_PATH 1024 /* The maximum path length command */
 
 int fetch_input(char *a) {
 	char p;
@@ -74,6 +76,8 @@ int main(void) {
 	printf("구현한 기능을 확인하고 싶으면 myfunction을 입력해주세요.\n");
 	printf("자세한 사용법은 위키를 참고해주세요.\n");
 	printf("https://github.com/vivi9814/my_shell/wiki/My-Own-Linux-Shell-in-C\n");
+	printf("주의사항1 : 입력할 수 있는 최대 문자열 길이는 100자입니다.\n");
+	printf("주의사항2 : 현재 위치를 출력할 때 위치의 문자열 길이가 1024를 초과하면 에러가 발생합니다.\n");
 	printf("\n\n\n");
 	while (should_run) {
 		printf("my_shell>");
@@ -107,14 +111,12 @@ int main(void) {
 		if (strcmp(args[0], "myexit") == 0) {
 			printf("프로그램 my_shell을 종료합니다.\n");
 			should_run = 0;
-			continue;
 		}
 
 		if (strcmp(args[0], "exit") == 0) {
 			printf("exit이 존재하지 않기 때문에 myexit으로 대체합니다.\n");
 			printf("프로그램 my_shell을 종료합니다.\n");
 			should_run = 0;
-			continue;
 		}
 
 		//2.쪼개진 문자열이 &으로 마무리가 된다면 background 프로세스로 실행하기 위해 flag를 활성화한다.		
@@ -130,13 +132,14 @@ int main(void) {
 		} 
 		if (strcmp(args[0], "cd") == 0){
 			printf("cd가 존재하지 않기 때문에 mycd로 대체합니다.\n");
+			printf("mycd를 실행했습니다.\n");
 			chdir(args[1]);
 		} 
 
 		// 4. 쪼개진 문자열이 mypwd와 같다면 현재 위치를 출력한다.
 
 		if (strcmp(args[0], "mypwd") == 0){
-			char path[PATH_MAX];
+			char path[MAX_PATH];
 			if (getcwd(path, sizeof(path)) != NULL) {
 				printf("My pwd : %s\n", path);
 			}
@@ -144,6 +147,38 @@ int main(void) {
 				perror("getpwd() error\n");
 			}
 		}
+
+		// 5. 쪼개진 문자열이 ls와 같다면 현재 위치의 파일 및 폴더를 출력한다.
+		// ls의 옵션은 아직 구현되지 않았다.
+		//ls기능은 정상 작동하나 ls를 사용하고 나면 그 다음 명령어까지만 실행이 되고 이후 랜덤한 시간동안 쉘에 명령어 기능이 되지않음.
+		// int myls(void){
+		// 		DIR *dp;
+		// 		struct dirent *dirt;
+		// 		dp = opendir(".");
+		// 		if (!dp) {
+		// 			perror("myls error\n");
+		// 			exit(1);
+		// 		}
+		// 		while( dirt = readdir(dp)){
+		// 			if(dirt->d_name != "." || ".."){
+		// 				printf("%s\t", dirt->d_name);
+		// 			}
+		// 		}
+		// 		printf("\n");
+		// 		closedir(dp);			
+		// }
+
+		// if (strcmp(args[0], "myls") == 0) {
+		// 	if (args_num > 1) {
+		// 		printf("myls에는 아직 별도의 옵션이 구현되지 않았습니다. ls명령어를 사용해주세요.\n");
+		// 	}
+		// 	else {
+		// 		myls();
+		// 	}
+		// 	// exit(0);
+		// 	// goto no_input;
+		// 	// continue;
+		// }
 
 
 
