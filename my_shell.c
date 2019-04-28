@@ -190,16 +190,13 @@ int main(void) {
 
 		//pid(process id)는 포크를 하면 생기는 반환값이다.
 		pid_t pid = fork();
-
 		if (pid < 0) {
 			//fork함수는 실패를 하면 -1을 반환한다(따라서 pid가 0보다 작으면 fork 실패)
 			perror("Fork error");
 			exit(0);
 		}
-
 		//status는 자식 프로세스의 상태를 나타낸다.
 		int status;
-		
 		//fork 함수는 성공했을 때 자식 프로세스에게는 0을, 부모 프로세스에게는 자식 프로세스의 pid를 반환한다.
 		if (pid == 0) {
 			//자식 프로세스를 실행한다.
