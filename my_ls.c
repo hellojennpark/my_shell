@@ -122,17 +122,11 @@ int main(void) {
 				printf("myls에는 아직 별도의 옵션이 구현되지 않았습니다. ls명령어를 사용해주세요.\n");
 			}
 			else {
-				// if ((dp = opendir(".")) == NULL){
-				// 	printf("open current dir error\n");
-				// }
-				// else{
-					char *pwd = getenv("PWD");
-					myls(pwd);
+				char *pwd = getenv("PWD");
+				myls(pwd);
 			}
 			printf("myls 명령어가 종료되었습니다. 쉘을 종료합니다.\n");
 			exit(0);
-			// goto no_input;
-			// continue;
 		}
 		no_input:;
 
