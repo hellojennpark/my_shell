@@ -69,6 +69,7 @@ int main(void) {
 
 	int length, args_num;
 
+
 	//쉘 시작 하기 전 안내 문구
 	printf("\n\n\n");
 	printf("[CSE4009 SYSTEM PROGRAMMING] TERM PROJECT\n");
@@ -90,6 +91,8 @@ int main(void) {
 	
 		args_num = parse(buffer, length, args);
 
+		loop:;
+
 		//입력된 인자의 갯수가 0개이면 입력이 없다.
 		//빈입력을 했을 경우, no_input전까지의 코드를 건너뛴다.
 		if (args_num == 0)
@@ -105,6 +108,8 @@ int main(void) {
 			printf("2. mycd\n");
 			printf("3. background check(&)\n");
 			printf("4. mypwd\n");
+			printf("5. myls(이 프로그램에서는 ls를 사용해주세요.\n");
+			printf("6. mycat(이 프로그램에서는 cat을 사용해주세요.\n");
 			printf("##############################\n");
 		}
 
@@ -182,6 +187,30 @@ int main(void) {
 			free(path);
 		}
 
+
+		// //6. mycat. 첫번째 분자열이 mycat이면 cat을 실행한다.
+		// if (strcmp(args[0], "mycat") == 0){
+		// 	int i;
+		// 	FILE *fl;
+		// 	int ck;
+		// 	for (i=1; i < args_num; i++){
+		// 		// FILE *fl;
+		// 		//파일을 끝까지 다 봤는지 확인 용도
+		// 		// int ck;
+		// 		//읽기전용으로 open
+		// 		fl = fopen(args[i], "r");
+		// 		if (!fl) {
+		// 			perror("fopen error\n");
+		// 			//에러 생겨서 강제종료를 할때는 1을 리턴함
+		// 			exit(1);
+		// 		}
+		// 		while ((ck = fgetc(fl)) != EOF) {
+		// 			if (putchar(ck) < 0)
+		// 				exit(1);
+		// 		}
+		// 		fclose(fl);
+		// 	}
+		// }
 
 
 
