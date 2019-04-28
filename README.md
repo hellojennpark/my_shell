@@ -4,7 +4,7 @@
 이 프로젝트에 대한 자세한 설명은 아래의 위키에 설명이 되어있다.
 
 
-## [My Own Linux Shell in C](https://github.com/vivi9814/my_shell/wiki/My-Own-Linux-Shell-in-C)
+# [My Own Linux Shell in C](https://github.com/vivi9814/my_shell/wiki/My-Own-Linux-Shell-in-C)
 ### 과제 소개
 - [INTRO](https://github.com/vivi9814/my_shell/wiki/Intro)
 
@@ -21,4 +21,5 @@
 - [myls(*별도)](https://github.com/vivi9814/my_shell/wiki/myls)
 - [mycat(*별도)](https://github.com/vivi9814/my_shell/wiki/mycat(*%EB%B3%84%EB%8F%84))
 ### ETC
+- [pipe/redirection](https://github.com/vivi9814/my_shell/wiki/pipe-redirection)
 - [배운점](https://github.com/vivi9814/my_shell/wiki/%EB%B0%B0%EC%9A%B4%EC%A0%90)

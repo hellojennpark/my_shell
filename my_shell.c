@@ -188,32 +188,6 @@ int main(void) {
 		}
 
 
-		// //6. mycat. 첫번째 분자열이 mycat이면 cat을 실행한다.
-		// if (strcmp(args[0], "mycat") == 0){
-		// 	int i;
-		// 	FILE *fl;
-		// 	int ck;
-		// 	for (i=1; i < args_num; i++){
-		// 		// FILE *fl;
-		// 		//파일을 끝까지 다 봤는지 확인 용도
-		// 		// int ck;
-		// 		//읽기전용으로 open
-		// 		fl = fopen(args[i], "r");
-		// 		if (!fl) {
-		// 			perror("fopen error\n");
-		// 			//에러 생겨서 강제종료를 할때는 1을 리턴함
-		// 			exit(1);
-		// 		}
-		// 		while ((ck = fgetc(fl)) != EOF) {
-		// 			if (putchar(ck) < 0)
-		// 				exit(1);
-		// 		}
-		// 		fclose(fl);
-		// 	}
-		// }
-
-
-
 		//pid(process id)는 포크를 하면 생기는 반환값이다.
 		pid_t pid = fork();
 
