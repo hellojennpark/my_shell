@@ -1,4 +1,4 @@
-###메인이 되는 파일은 my_shell.c입니다. pipe/ls/cat을 별도로 파일을 만들었을 뿐입니다.
+### 메인이 되는 파일은 my_shell.c입니다. pipe/ls/cat을 별도로 파일로 만들었을 뿐입니다.
 
 <img src = "https://github.com/vivi9814/my_shell/blob/master/wiki_image/pome.jpg" width = "40%">
 
@@ -19,9 +19,17 @@
 - [background checking](https://github.com/vivi9814/my_shell/wiki/background-checking)
 - [myfunction](https://github.com/vivi9814/my_shell/wiki/my-function)
 - [mypwd](https://github.com/vivi9814/my_shell/wiki/mypwd)
+
+***
+
 - [편의를 위한 기능](https://github.com/vivi9814/my_shell/wiki/%EB%8B%A8%EC%88%9C-%ED%8E%B8%EC%9D%98%EB%A5%BC-%EC%9C%84%ED%95%9C-%EA%B8%B0%EB%8A%A5-%EC%B6%94%EA%B0%80)
+
+***
+
 - [myls(*별도)](https://github.com/vivi9814/my_shell/wiki/myls)
 - [mycat(*별도)](https://github.com/vivi9814/my_shell/wiki/mycat(*%EB%B3%84%EB%8F%84))
+- [my_pipe(**단순화)](https://github.com/vivi9814/my_shell/wiki/pipe)
+
 ### ETC
 - [pipe/redirection](https://github.com/vivi9814/my_shell/wiki/pipe-redirection)
 - [배운점](https://github.com/vivi9814/my_shell/wiki/%EB%B0%B0%EC%9A%B4%EC%A0%90)
