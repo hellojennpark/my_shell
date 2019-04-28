@@ -1,7 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <sys/types.h>
+#include <string.h>
+#include <sys/wait.h>
+#include <unistd.h>
 #include <dirent.h>
+#include <sys/types.h>
+
+#define MAX_LEN 100 /* The maximum length command */
+#define	MAX_PATH 1024 /* The maximum path length command */
+
 
 int fetch_input(char *a) {
 	char p;
@@ -122,10 +129,12 @@ int main(void) {
 					char *pwd = getenv("PWD");
 					myls(pwd);
 			}
+			printf("myls 명령어가 종료되었습니다. 쉘을 종료합니다.\n");
 			exit(0);
 			// goto no_input;
 			// continue;
 		}
+		no_input:;
 
 	}
 }

@@ -148,43 +148,6 @@ int main(void) {
 			}
 		}
 
-		// 5. 쪼개진 문자열이 ls와 같다면 현재 위치의 파일 및 폴더를 출력한다.
-		// ls의 옵션은 아직 구현되지 않았다.
-		//ls기능은 정상 작동하나 ls를 사용하고 나면 그 다음 명령어까지만 실행이 되고 이후 랜덤한 시간동안 쉘에 명령어 기능이 되지않음.
-		// int myls(char *path){
-		// 		DIR *dp;
-		// 		struct dirent *dirt;
-		// 		dp = opendir(".");
-		// 		if (!dp) {
-		// 			perror("myls error\n");
-		// 			exit(1);
-		// 		}
-		// 		while( dirt = readdir(dp)){
-		// 			if(dirt->d_name != "." || ".."){
-		// 				printf("%s\t", dirt->d_name);
-		// 			}
-		// 		}
-		// 		printf("\n");
-		// 		closedir(dp);			
-		// }
-
-		// if (strcmp(args[0], "myls") == 0) {
-		// 	if (args_num >= 2) {
-		// 		printf("myls에는 아직 별도의 옵션이 구현되지 않았습니다. ls명령어를 사용해주세요.\n");
-		// 	}
-		// 	else {
-		// 		// if ((dp = opendir(".")) == NULL){
-		// 		// 	printf("open current dir error\n");
-		// 		// }
-		// 		// else{
-		// 			char *pwd = getenv("PWD");
-		// 			myls(pwd);
-		// 		// }
-		// 	}
-		// 	// exit(0);
-		// 	// goto no_input;
-		// 	// continue;
-		// }
 
 
 
