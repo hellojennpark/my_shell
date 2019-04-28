@@ -1,3 +1,5 @@
+###메인이 되는 파일은 my_shell.c입니다. pipe/ls/cat을 별도로 파일을 만들었을 뿐입니다.
+
 <img src = "https://github.com/vivi9814/my_shell/blob/master/wiki_image/pome.jpg" width = "40%">
 
 
