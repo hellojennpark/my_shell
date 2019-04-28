@@ -134,10 +134,14 @@ int main(void) {
 		} 
 
 		// 4. 쪼개진 문자열이 mypwd와 같다면 현재 위치를 출력한다.
+
 		if (strcmp(args[0], "mypwd") == 0){
 			char path[PATH_MAX];
 			if (getcwd(path, sizeof(path)) != NULL) {
 				printf("My pwd : %s\n", path);
+			}
+			else{
+				perror("getpwd() error\n");
 			}
 		}
 
