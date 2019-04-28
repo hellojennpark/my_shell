@@ -5,22 +5,25 @@
 #include <unistd.h>
 
 #define MAX_LEN 100 /* The maximum length command */
-
+#define	PATH_MAX 1024 /* The maximum path length command */
 
 int fetch_input(char *a) {
 	char p;
 	int num  = 0;
 
+	//getchar를 이용해서 사용자가 엔터를 하기 전까지 입력을 받는다.
+	//만약 사용자의 입력이 입력 최대길이를 넘어간다면 더이상 입력을 받지 않는다.
 	while (((p = getchar()) != '\n') && (num < MAX_LEN)) {
 		a[num++] = p;
 	}
-
+	//입력최대길이를 넘어설 경우 경고문을 발생시킨다.
 	if (num == MAX_LEN && p != '\n') {
 		perror("length error");
 		num = -1;
 	} else {
 		a[num] = 0;
 	}
+	//엔터를 하기 전까지 계속 입력을 받는다.
 	while (p != '\n') p = getchar();
 	return num;
 }
@@ -29,7 +32,9 @@ int fetch_input(char *a) {
 int parse(char *buffer, int length, char* args[]) {
 	int args_num = 0, last = -1, i;
 	args[0] = NULL;
+	//입력받은 문자열을 파싱한다.
 	for (i = 0; i <= length; ++i) {
+		//뛰어쓰기나 탭 처리
 		if (buffer[i] != ' ' && buffer[i] != '\t' && buffer[i]) {
 			continue;
 		} else {
@@ -94,12 +99,13 @@ int main(void) {
 			printf("1. myexit\n");
 			printf("2. mycd\n");
 			printf("3. background check(&)\n");
-			printf("4. my pwd")
+			printf("4. mypwd");
 			printf("##############################\n");
 		}
 
 		//1. 쪼개진 문자열이 exit과 같다면 프로그램을 종료시킨다.
 		if (strcmp(args[0], "myexit") == 0) {
+			printf("프로그램 my_shell을 종료합니다.\n");
 			should_run = 0;
 			continue;
 		}
@@ -118,8 +124,6 @@ int main(void) {
 
 		// 4. 쪼개진 문자열이 mypwd와 같다면 현재 위치를 출력한다.
 		if (strcmp(args[0], "mypwd") == 0){
-
-			int PATH_MAX = 1024;
 			char path[PATH_MAX];
 			if (getcwd(path, sizeof(path)) != NULL) {
 				printf("My pwd : %s\n", path);
