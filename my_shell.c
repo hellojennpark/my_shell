@@ -116,6 +116,7 @@ int main(void) {
 			chdir(args[1]);
 		} 
 
+		// 4. 쪼개진 문자열이 mypwd와 같다면 현재 위치를 출력한다.
 		if (strcmp(args[0], "mypwd") == 0){
 
 			int PATH_MAX = 1024;
