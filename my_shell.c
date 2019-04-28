@@ -99,12 +99,19 @@ int main(void) {
 			printf("1. myexit\n");
 			printf("2. mycd\n");
 			printf("3. background check(&)\n");
-			printf("4. mypwd");
+			printf("4. mypwd\n");
 			printf("##############################\n");
 		}
 
 		//1. 쪼개진 문자열이 exit과 같다면 프로그램을 종료시킨다.
 		if (strcmp(args[0], "myexit") == 0) {
+			printf("프로그램 my_shell을 종료합니다.\n");
+			should_run = 0;
+			continue;
+		}
+
+		if (strcmp(args[0], "exit") == 0) {
+			printf("exit이 존재하지 않기 때문에 myexit으로 대체합니다.\n");
 			printf("프로그램 my_shell을 종료합니다.\n");
 			should_run = 0;
 			continue;
@@ -119,6 +126,10 @@ int main(void) {
 
 		//3. 쪼개진 문자열의 첫번째가 cd라면 두번째 문자열에 있는 디렉터리로 이동한다.
 		if (strcmp(args[0], "mycd") == 0){
+			chdir(args[1]);
+		} 
+		if (strcmp(args[0], "cd") == 0){
+			printf("cd가 존재하지 않기 때문에 mycd로 대체합니다.\n");
 			chdir(args[1]);
 		} 
 
